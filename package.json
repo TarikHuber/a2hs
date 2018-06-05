@@ -27,11 +27,14 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Tarik Huber",
+  "homepage": "https://www.react-most-wanted.com",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/TarikHuber/a2hs",
   "keywords": [
+    "react",
+    "pwa",
+    "a2hs",
     "react-component"
   ]
 }

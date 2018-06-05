@@ -1,9 +1,3 @@
-import React, {Component} from 'react'
-
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+import A2HSProvider from './A2HSProvider'
+export { withA2HS } from './themeContext'
+export default A2HSProvider
