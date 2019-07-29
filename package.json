@@ -1,6 +1,6 @@
 {
   "name": "a2hs",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "a2hs React component",
   "main": "lib/index.js",
   "module": "es/index.js",
