@@ -1,36 +1,29 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import A2HSContext, { initialState } from './themeContext'
+import A2HSContext from './themeContext'
 
-class A2HSProvider extends Component {
+const initialState = {
+  deferredPrompt: () => {},
+  isAppInstallable: false,
+  isAppInstalled: false
+}
 
-  setA2HPState = (newState) => {
-    this.setState({ ...newState })
-  }
+const A2HSProvider = ({ children }) => {
+  const [state, setA2HPState] = useState(initialState)
 
-  state = {
-    ...initialState,
-    setA2HPSState: this.setA2HPState
-  }
+  window.addEventListener('beforeinstallprompt', e => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault()
+    // Stash the event so it can be triggered later.
+    setState({ deferredPrompt: e, isAppInstallable: true })
+    console.log('deffered prompt saved')
+  })
 
-  componentDidMount() {
+  window.addEventListener('appinstalled', evt => {
+    setState({ isAppInstalled: true })
+  })
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      this.setState({ deferredPrompt: e, isAppInstallable: true })
-      console.log('deffered prompt saved')
-    });
-
-    window.addEventListener('appinstalled', (evt) => {
-      this.setState({ isAppInstalled: true })
-    });
-  }
-
-  render() {
-    return <A2HSContext.Provider value={this.state}>{this.props.children}</A2HSContext.Provider>
-  }
+  return <A2HSContext.Provider value={{ ...state, setA2HPState }}>{children}</A2HSContext.Provider>
 }
 
 export default A2HSProvider
