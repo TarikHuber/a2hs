@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import A2HSContext from './themeContext'
+import A2HSContext from './withA2HS'
 
 const initialState = {
   deferredPrompt: () => {},
