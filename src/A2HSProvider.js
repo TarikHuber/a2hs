@@ -15,12 +15,12 @@ const A2HSProvider = ({ children }) => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault()
     // Stash the event so it can be triggered later.
-    setState({ deferredPrompt: e, isAppInstallable: true })
+    setA2HPState({ deferredPrompt: e, isAppInstallable: true })
     console.log('deffered prompt saved')
   })
 
   window.addEventListener('appinstalled', evt => {
-    setState({ isAppInstalled: true })
+    setA2HPState({ isAppInstalled: true })
   })
 
   return <A2HSContext.Provider value={{ ...state, setA2HPState }}>{children}</A2HSContext.Provider>
