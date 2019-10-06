@@ -20,12 +20,13 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x",
+    "react-dom": "16.x"
   },
   "devDependencies": {
     "nwb": "^0.23.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "author": "Tarik Huber",
   "homepage": "https://www.react-most-wanted.com",
